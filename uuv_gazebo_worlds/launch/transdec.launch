@@ -23,9 +23,7 @@
         <rosparam subst_value="true">
             meshes:
                 transdec:
-                    mesh: package://uuv_gazebo_worlds/models/transdec/meshes/full_transdec_stl.STL
-                    pose:
-                      position: [0,0,0]
+                    mesh: package://uuv_gazebo_worlds/models/transdec/meshes/full_transdec.STL
         </rosparam>
       </node>
   </launch>
