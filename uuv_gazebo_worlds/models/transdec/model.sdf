@@ -40,9 +40,9 @@
             </geometry>
         </collision>
         <visual name="surface">
-            <pose>0 0 0 0 0 0</pose>
+            <pose>-1.5 1.5 -12.19 1.57 0 0</pose>
             <geometry>
-                <mesh><uri>model://transdec/meshes/WaterSurface.dae</uri><scale>10 10 10</scale></mesh>
+                <mesh><uri>model://transdec/meshes/transdecwater.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
             </geometry>
             <material>
               <script>
