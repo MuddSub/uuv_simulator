@@ -75,9 +75,11 @@ HydrodynamicModel::HydrodynamicModel(sdf::ElementPtr _sdf,
       double width = sdfModel->Get<double>("width");
       double length = sdfModel->Get<double>("length");
       double height = sdfModel->Get<double>("height");
-      ignition::math::Box boundingBox = ignition::math::Box(
-        ignition::math::Vector3d(-width / 2, -length / 2, -height / 2),
-        ignition::math::Vector3d(width / 2, length / 2, height / 2));
+
+      bBox_t boundingBox = bBox_t(
+      ignition::math::Vector3d(-width / 2, -length / 2, -height / 2),
+      ignition::math::Vector3d(width / 2, length / 2, height / 2));
+
       // Setting the the bounding box from the given dimensions
       this->SetBoundingBox(boundingBox);
     }
@@ -744,7 +746,7 @@ HMSphere::HMSphere(sdf::ElementPtr _sdf,
   {
     // Setting the added mass
     this->Ma(i, i) = -sphereMa;
-    // Setting the pressure drag    
+    // Setting the pressure drag
     this->DNonLin(i, i) = Dq;
   }
 }

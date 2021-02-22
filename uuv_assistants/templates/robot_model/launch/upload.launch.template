@@ -34,8 +34,8 @@
 
   <group ns="$(arg namespace)">
     <param name="robot_description"
-           command="$(find xacro)/xacro.py '$(find $CATKIN_PACKAGE)/robots/$(arg mode).xacro' debug:=$(arg debug) namespace:=$(arg namespace)" />
-    
+           command="rosrun xacro xacro $(find $CATKIN_PACKAGE)/robots/$(arg mode).xacro" />
+
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <group if="$(arg use_geodetic)">
       <node name="urdf_spawner" pkg="uuv_descriptions" type="spawn_model" respawn="false" output="screen"

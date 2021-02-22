@@ -25,7 +25,7 @@
 
   <group ns="$(arg namespace)">
     <param name="robot_description"
-           command="$(find xacro)/xacro.py '$(find uuv_tutorial_rov_model)/robots/rov_example_$(arg mode).xacro' debug:=$(arg debug) namespace:=$(arg namespace)" />
+           command="rosrun xacro xacro $(find uuv_tutorial_rov_model)/robots/rov_example_$(arg mode).xacro" />
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
@@ -45,4 +45,3 @@
   </include>
 
 </launch>
-  

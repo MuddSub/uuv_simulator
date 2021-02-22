@@ -31,6 +31,12 @@
 
 namespace gazebo
 {
+
+#if GAZEBO_MAJOR_VERSION >= 11
+ using bBox_t = ignition::math::AxisAlignedBox;
+#else
+  using bBox_t = ignition::math::Box;
+#endif
 /// \brief Class describing the dynamics of a buoyant object, useful for simple
 /// representations of underwater structures
 class BuoyantObject
@@ -74,7 +80,7 @@ class BuoyantObject
   public: double GetGravity();
 
   /// \brief Sets bounding box
-  public: void SetBoundingBox(const ignition::math::Box &_bBox);
+  public: void SetBoundingBox(const bBox_t &_bBox);
 
   /// \brief Adds a field in the hydroWrench map
   public: void SetStoreVector(std::string _tag);
@@ -120,7 +126,7 @@ class BuoyantObject
 
   /// \brief TEMP for calculation of the buoyancy
   /// force close to the surface
-  protected: ignition::math::Box boundingBox;
+  protected: bBox_t boundingBox;
 
   /// \brief Storage for hydrodynamic and hydrostatic forces and torques
   /// for debugging purposes
