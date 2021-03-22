@@ -32,7 +32,6 @@
               </script>
             </material>
         </visual>
-
         <collision name="transdec_bottom">
             <pose>0 0 0 0 0 0</pose>
             <geometry>
@@ -51,6 +50,22 @@
               </script>
             </material>
         </visual>
+        <visual name="full_gate">
+            <cast_shadows>false</cast_shadows>
+            <pose>0 0 0 1.57 3.14 0</pose>
+            <geometry>
+                <mesh><uri>model://transdec/meshes/FullGate.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
+            </geometry>
+            <material>
+              Gazebo/Blue
+            </material>
+        </visual>
+        <collision name="full_gate">
+            <pose>0 0 0 1.57 3.14 0</pose>
+            <geometry>
+                <mesh><uri>model://transdec/meshes/FullGate.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
+            </geometry>
+        </collision>
     </link>
 </model>
 
