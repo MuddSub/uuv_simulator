@@ -21,7 +21,7 @@
     <link name="transdec_link">
         <visual name="transdec_bottom">
             <cast_shadows>false</cast_shadows>
-            <pose>0 0 -12.19 1.57 0 0</pose>
+            <pose>-30.48 47.77 -12.19 1.57 0 0</pose>
             <geometry>
                 <mesh><uri>model://transdec/meshes/full_transdec.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
             </geometry>
@@ -33,13 +33,13 @@
             </material>
         </visual>
         <collision name="transdec_bottom">
-            <pose>0 0 0 0 0 0</pose>
+            <pose>-32.53 50 -13.1 1.57 0 0</pose>
             <geometry>
                 <mesh><uri>model://transdec/meshes/full_transdec.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
             </geometry>
         </collision>
         <visual name="surface">
-            <pose>-1.5 1.5 -12.19 1.57 0 0</pose>
+            <pose>-32.53 50 -13.1 1.57 0 0</pose>
             <geometry>
                 <mesh><uri>model://transdec/meshes/transdecwater.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
             </geometry>
@@ -57,7 +57,10 @@
                 <mesh><uri>model://transdec/meshes/FullGate.STL</uri><scale>0.001 0.001 0.001</scale></mesh>
             </geometry>
             <material>
-              Gazebo/Blue
+              <ambient>0.1 0.1 0.1 1</ambient>
+              <diffuse>1 0.5 0.2 1</diffuse>
+              <specular>0 0 0 0</specular>
+              <emissive>0 0 0 1</emissive>
             </material>
         </visual>
         <collision name="full_gate">
