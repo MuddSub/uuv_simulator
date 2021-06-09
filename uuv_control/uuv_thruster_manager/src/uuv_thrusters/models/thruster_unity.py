@@ -17,10 +17,9 @@ import numpy
 from .thruster import Thruster
 
 
-class ThrusterProportional(Thruster):
-    """This model corresponds to the linear relation between a function
-    abs(command)*command of the command input (usually the command angular
-    velocity) to the thrust force. A constant gain has to be provided.
+class ThrusterUnity(Thruster):
+    """ Output = Input. No transformations, no nonsense. Used for running
+    thruster allocation with the real-world robot.
 
 
     > *Input arguments*
@@ -33,18 +32,15 @@ class ThrusterProportional(Thruster):
     with the orientation of the thruster with respect to the vehicle's
     frame as `(qx, qy, qz, qw)`.
     * `axis` (*type:* `numpy.array`): Axis of rotation of the thruster.
-    * `gain` (*type:* `float`): Constant gain.
     """
-    LABEL = 'proportional'
+    LABEL = 'unity'
 
     def __init__(self, *args, **kwargs):
-        super(ThrusterProportional, self).__init__(*args)
+        super(ThrusterUnity, self).__init__(*args)
 
         if 'gain' not in kwargs:
             rospy.ROSException('Thruster gain not given')
-        self._gain = kwargs['gain']
-        rospy.loginfo('Thruster model:')
-        rospy.loginfo('\tGain=' + str(self._gain))
+        rospy.loginfo('Thruster model: Unity')
 
     def get_command_value(self, thrust):
         """Compute the angular velocity necessary
@@ -58,8 +54,7 @@ class ThrusterProportional(Thruster):
 
         `float`: Angular velocity set-point for the thruster in rad/s
         """
-        return numpy.sign(thrust) * \
-            numpy.sqrt(numpy.abs(thrust) / self._gain)
+        return thrust
 
     def get_thrust_value(self, command):
         """Computes the thrust force for the given angular velocity
@@ -74,4 +69,4 @@ class ThrusterProportional(Thruster):
 
         `thrust` (*type:* `float`): Thrust force magnitude in N
         """
-        return self._gain * numpy.abs(command) * command
+        return command

@@ -11,11 +11,11 @@
         <arg name="gui" value="$(arg gui)"/>
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
-        <arg name="verbose" value="true"/>
+        <arg name="verbose" value="false"/>
     </include>
 
     <include file="$(find uuv_assistants)/launch/publish_world_ned_frame.launch"/>
-    
+
     <node name="publish_world_models"
         pkg="uuv_assistants"
         type="publish_world_models.py"

@@ -16,3 +16,4 @@
 from .thruster import Thruster
 from .thruster_proportional import ThrusterProportional
 from .thruster_custom import ThrusterCustom
+from .thruster_unity import ThrusterUnity
